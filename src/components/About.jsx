@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion'
 
 const ease = [0.25, 0.46, 0.45, 0.94]
 
-// Persian-inspired SVG ornament
 function Ornament() {
   return (
     <div className="ornament">
@@ -12,7 +11,7 @@ function Ornament() {
         <rect x="25" y="25" width="50" height="50" stroke="#c4897b" strokeWidth=".5" transform="rotate(45 50 50)" />
         <circle cx="50" cy="50" r="12" stroke="#c4897b" strokeWidth=".8" fill="none" />
         <circle cx="50" cy="50" r="3" fill="#c4897b" opacity=".5" />
-        {[0,90,180,270].map(a => (
+        {[0, 90, 180, 270].map(a => (
           <line key={a}
             x1="50" y1="38" x2="50" y2="28"
             stroke="#c4897b" strokeWidth=".6"
@@ -40,7 +39,7 @@ export default function About() {
       <motion.div
         className="about-images"
         initial={{ opacity: 0, x: -60 }}
-        animate={inView ? { opacity:1, x:0 } : {}}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 1.1, ease }}
       >
         {photos.map((src, i) => (
@@ -55,7 +54,7 @@ export default function About() {
       <motion.div
         className="about-text"
         initial={{ opacity: 0, x: 60 }}
-        animate={inView ? { opacity:1, x:0 } : {}}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 1.1, delay: 0.15, ease }}
       >
         <div className="sec-label">About Mozhgan</div>
@@ -67,7 +66,7 @@ export default function About() {
         </p>
 
         <p className="about-body">
-          Based between Tehran and Paris, Mozhgan Nami is a fine-art photographer
+          Based in Turin, Italy, Mozhgan Nami is a fine-art photographer
           whose work sits at the intersection of fashion, emotion, and cultural
           identity. With over a decade of experience working with leading brands,
           magazines, and independent artists, her images are distinguished by their
@@ -75,7 +74,7 @@ export default function About() {
         </p>
         <p className="about-body">
           Trained in classical photography and visual arts, Mozhgan draws on
-          Persian aesthetic traditions — pattern, light, and the poetry of
+          Italian and Persian aesthetic traditions — pattern, light, and the poetry of
           negative space — to create work that feels both timeless and distinctly
           contemporary.
         </p>
@@ -83,7 +82,7 @@ export default function About() {
         <div className="about-sig">Mozhgan Nami</div>
 
         <div className="about-stats">
-          {[['250+','Projects'],['40+','Brands'],['15','Years'],['8','Awards']].map(([n,l]) => (
+          {[['250+', 'Projects'], ['40+', 'Brands'], ['15', 'Years'], ['8', 'Awards']].map(([n, l]) => (
             <div key={l}>
               <div className="stat-n">{n}</div>
               <div className="stat-l">{l}</div>
@@ -91,7 +90,7 @@ export default function About() {
           ))}
         </div>
 
-        <a href="#contact" className="btn-dark" style={{ marginTop: 8, display:'inline-block' }}>
+        <a href="#contact" className="btn-dark" style={{ marginTop: 8, display: 'inline-block' }}>
           Work Together
         </a>
       </motion.div>
