@@ -1,34 +1,21 @@
 import { useEffect, useRef } from 'react'
-
 export default function Cursor() {
-  const dot  = useRef(null)
-  const ring = useRef(null)
-
+  const dot = useRef(null), ring = useRef(null)
   useEffect(() => {
-    const onMove = (e) => {
-      if (dot.current)  { dot.current.style.left  = e.clientX + 'px'; dot.current.style.top  = e.clientY + 'px' }
-      if (ring.current) { ring.current.style.left = e.clientX + 'px'; ring.current.style.top = e.clientY + 'px' }
+    const mv = e => {
+      const s = (el, x, y) => { if(el){ el.style.left=x+'px'; el.style.top=y+'px' }}
+      s(dot.current, e.clientX, e.clientY); s(ring.current, e.clientX, e.clientY)
     }
-    document.addEventListener('mousemove', onMove)
-
-    const hoverTargets = () => document.querySelectorAll('a,button,.g-item,.ab-img,.svc-card,.testi-card')
-    const add    = () => { dot.current?.classList.add('big');    ring.current?.classList.add('big') }
-    const remove = () => { dot.current?.classList.remove('big'); ring.current?.classList.remove('big') }
-
-    const attach = () => {
-      hoverTargets().forEach(el => { el.addEventListener('mouseenter', add); el.addEventListener('mouseleave', remove) })
-    }
+    document.addEventListener('mousemove', mv)
+    const on = () => { dot.current?.classList.add('big'); ring.current?.classList.add('big') }
+    const off = () => { dot.current?.classList.remove('big'); ring.current?.classList.remove('big') }
+    const attach = () => document.querySelectorAll('a,button,.port-item,.testi-card,.svc-item,.pstep').forEach(el => {
+      el.addEventListener('mouseenter', on); el.addEventListener('mouseleave', off)
+    })
     attach()
-    const observer = new MutationObserver(attach)
-    observer.observe(document.body, { childList: true, subtree: true })
-
-    return () => { document.removeEventListener('mousemove', onMove); observer.disconnect() }
+    const obs = new MutationObserver(attach)
+    obs.observe(document.body, { childList:true, subtree:true })
+    return () => { document.removeEventListener('mousemove', mv); obs.disconnect() }
   }, [])
-
-  return (
-    <>
-      <div className="cur-dot"  ref={dot}  />
-      <div className="cur-ring" ref={ring} />
-    </>
-  )
+  return (<><div className="cur-dot" ref={dot}/><div className="cur-ring" ref={ring}/></>)
 }

@@ -13,26 +13,19 @@ import Footer       from './components/Footer'
 export default function App() {
   return (
     <>
-      {/* Grain texture overlay */}
-      <div className="grain" aria-hidden="true" />
-
-      {/* Custom cursor */}
+      <div className="noise" aria-hidden="true" />
       <Cursor />
-
-      {/* Site */}
       <Navbar />
-
       <main>
         <Hero />
         <About />
         <Work />
         <Services />
+        <Reel />
         <Process />
         <Testimonials />
-        <Reel />
         <Contact />
       </main>
-
       <Footer />
     </>
   )
