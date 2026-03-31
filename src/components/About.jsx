@@ -31,17 +31,12 @@ export default function About() {
         <span className="s-title-italic">Story</span>
         <div className="divider"/>
         <p className="about-body">
-          Based in Turin, Italy, Mozhgan Nami is a fine-art photographer and filmmaker
-          whose work sits at the intersection of fashion, emotion, and cultural identity.
-          With over a decade of experience working with leading brands, magazines, and
-          independent artists, her images are distinguished by their warmth, depth, and
-          painterly quality.
+        Mozhgan Photography is a creative photography studio dedicated to capturing authentic moments, emotions, and stories through a refined artistic lens. With a passion for visual storytelling, Mozhgan transforms everyday moments into timeless memories that reflect beauty, personality, and connection.
+        Specializing in portrait, lifestyle, and event photography, the brand focuses on creating a comfortable and inspiring experience for every client. Each session is thoughtfully designed to highlight natural expressions and genuine emotions, resulting in images that feel both elegant and real.
         </p>
         <p className="about-body">
-          Trained in classical photography and visual arts, Mozhgan draws on Italian
-          and Persian aesthetic traditions — pattern, light, and the poetry of negative
-          space — to create work that feels both timeless and distinctly contemporary.
-          Available worldwide for commissions and collaborations.
+        Driven by creativity and attention to detail, Mozhgan Photography blends modern aesthetics with a personal approach—ensuring every photo tells a unique story. 
+        Whether it’s a personal shoot, a special celebration, or creative content for brands, the goal is always the same: to create meaningful visuals that last a lifetime.
         </p>
         <div className="about-signature">Mozhgan Nami</div>
         <div className="about-skills">
