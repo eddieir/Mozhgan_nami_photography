@@ -435,9 +435,535 @@ section { padding: clamp(70px, 10vw, 130px) 60px; }
   letter-spacing: .05em; color: var(--white);
 }
 
-/* ── VIDEO / REEL ── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   REEL SECTION — Vertical + Horizontal Video Support
+   Paste/replace the existing .reel-section block in index.css
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Section shell ── */
 .reel-section {
-  background: var(--black); padding: 0;
+  background: var(--black);
+  padding: 0 0 0 0;
+}
+
+.reel-header {
+  padding: clamp(70px, 10vw, 130px) 60px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.reel-header-desc {
+  max-width: 360px;
+  font-size: .85rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--grey1);
+  text-align: right;
+}
+
+/* ── Format dividers ── */
+.reel-section-label {
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.reel-section-label > span:first-child {
+  font-family: var(--ff-head);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.reel-section-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, .08);
+}
+
+.reel-section-tag {
+  font-family: var(--ff-head);
+  font-size: .52rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   VERTICAL VIDEO CARDS (9:16)
+   ════════════════════════════════════════════════════════════════════ */
+
+.vcards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  padding: 0 60px;
+}
+
+.vcard {
+  position: relative;
+  background: var(--black4);
+  overflow: hidden;
+}
+
+/* 9:16 aspect ratio container */
+.vcard-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  cursor: none;
+}
+
+.vcard-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s cubic-bezier(.25, .46, .45, .94);
+}
+
+.vcard:hover .vcard-media video {
+  transform: scale(1.04);
+}
+
+.vcard-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, .9) 0%,
+    rgba(10, 10, 10, .15) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Centre play button (shown when paused) */
+.vcard-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(200, 169, 126, .6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, .4);
+  backdrop-filter: blur(4px);
+  transition: transform .25s, background .25s, border-color .25s;
+  pointer-events: none;
+}
+
+.vcard:hover .vcard-play-btn {
+  border-color: var(--accent);
+  background: rgba(200, 169, 126, .15);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Controls bar below video */
+.vcard-controls {
+  padding: 12px 14px 2px;
+  background: var(--black3);
+}
+
+.vcard-progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 1px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.vcard-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width .1s linear;
+}
+
+.vcard-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vcard-ctrl-btn {
+  background: none;
+  border: none;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+
+.vcard-ctrl-btn:hover {
+  background: rgba(255, 255, 255, .07);
+}
+
+.vcard-label {
+  flex: 1;
+  font-family: var(--ff-head);
+  font-size: .48rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+.vcard-expand {
+  margin-left: auto;
+}
+
+.vcard-title {
+  padding: 10px 14px 16px;
+  font-family: var(--ff-head);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black3);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   HORIZONTAL VIDEO PLAYERS (16:9)
+   ════════════════════════════════════════════════════════════════════ */
+
+.hplayers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+
+.hplayer {
+  position: relative;
+  background: var(--black4);
+  overflow: hidden;
+}
+
+.hplayer-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: none;
+}
+
+.hplayer-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.75);
+  transition: transform .7s cubic-bezier(.25, .46, .45, .94), filter .4s;
+}
+
+.hplayer:hover .hplayer-media video {
+  transform: scale(1.04);
+  filter: brightness(.9);
+}
+
+.hplayer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, .85) 0%,
+    rgba(10, 10, 10, .1) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Centre play button */
+.hplayer-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88px;
+  height: 88px;
+  border: 1px solid rgba(200, 169, 126, .5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, .3);
+  backdrop-filter: blur(6px);
+  transition: transform .3s, border-color .3s, background .3s;
+  pointer-events: none;
+}
+
+.hplayer:hover .hplayer-play-btn {
+  border-color: var(--accent);
+  background: rgba(200, 169, 126, .12);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Title badge (bottom-left of video) */
+.hplayer-title-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.hplayer-badge-label {
+  font-family: var(--ff-head);
+  font-size: .48rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hplayer-badge-title {
+  font-family: var(--ff-head);
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--white);
+}
+
+/* Duration badge (top-right of video) */
+.hplayer-duration {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--ff-head);
+  font-size: .55rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  color: var(--white);
+  background: rgba(10, 10, 10, .6);
+  backdrop-filter: blur(4px);
+  padding: 5px 10px;
+  pointer-events: none;
+}
+
+/* Controls bar */
+.hplayer-controls {
+  padding: 14px 20px 18px;
+  background: var(--black3);
+  border-top: 1px solid rgba(255, 255, 255, .05);
+}
+
+.hplayer-seekbar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 2px;
+  cursor: none;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: visible;
+}
+
+.hplayer-seekbar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  position: relative;
+  transition: width .1s linear;
+}
+
+.hplayer-seekbar-thumb {
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200, 169, 126, .25);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.hplayer-seekbar:hover .hplayer-seekbar-thumb {
+  opacity: 1;
+}
+
+.hplayer-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hctrl-btn {
+  background: none;
+  border: none;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+
+.hctrl-btn:hover {
+  background: rgba(255, 255, 255, .07);
+}
+
+.hctrl-fs {
+  margin-left: auto;
+}
+
+.hplayer-time {
+  font-family: var(--ff-head);
+  font-size: .52rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  color: var(--grey1);
+  margin-left: 4px;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   LIGHTBOX
+   ════════════════════════════════════════════════════════════════════ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, .95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* For vertical (9:16) videos the inner box is portrait */
+.lightbox-inner {
+  position: relative;
+  /* max height 90vh, maintain 9:16 */
+  height: 90vh;
+  width: calc(90vh * 9 / 16);
+  max-width: 90vw;
+  background: #000;
+  overflow: hidden;
+}
+
+.lb-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, .8), transparent);
+}
+
+.lb-btn {
+  background: none;
+  border: none;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background .2s;
+}
+
+.lb-btn:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.lb-close {
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .15);
+}
+
+.lb-close:hover {
+  background: rgba(255, 255, 255, .18);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .vcards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 24px;
+  }
+
+  .hplayers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .reel-header {
+    padding: 60px 24px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .reel-header-desc {
+    text-align: left;
+  }
+
+  .reel-section-label {
+    padding: 0 24px;
+  }
+
+  .vcards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 24px;
+    gap: 12px;
+  }
+
+  .hplayer-play-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .lightbox-inner {
+    height: auto;
+    width: 95vw;
+    aspect-ratio: 9 / 16;
+  }
+}
+
+@media (max-width: 500px) {
+  .vcards-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin: 0 auto;
+  }
 }
 .reel-top {
   padding: clamp(70px,10vw,130px) 60px 60px;
