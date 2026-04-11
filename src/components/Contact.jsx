@@ -14,7 +14,7 @@ const CLINKS = [
   { Icon: Mail,   href:'mailto:mozhgannamiseghinsara@gmail.com', label:'Email',     text:'mozhgannamiseghinsara@gmail.com' },
   { Icon: WaIcon, href:'https://wa.me/393515993144',             label:'WhatsApp',  text:'+39 351 599 3144' },
   { Icon: IgIcon, href:'https://www.instagram.com/mozhganphotography/', label:'Instagram', text:'@mozhganphotography' },
-  { Icon: MapPin, href:'https://maps.google.com/?q=Turin,Italy', label:'Location',  text:'Turin, Italy' },
+  
 ]
 
 export default function Contact() {
