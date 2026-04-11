@@ -339,24 +339,15 @@ section { padding: clamp(70px, 10vw, 130px) 60px; }
   border: 1px solid rgba(255,255,255,.07);
 }
 .svc-item {
-  padding: 44px 36px; border-right: 1px solid rgba(255,255,255,.07);
+  padding: 28px 28px; border-right: 1px solid rgba(255,255,255,.07);
   border-bottom: 1px solid rgba(255,255,255,.07);
-  position: relative; overflow: hidden;
   transition: background .4s;
 }
 .svc-item:nth-child(3n) { border-right: none; }
 .svc-item:nth-child(n+4) { border-bottom: none; }
 .svc-item:hover { background: rgba(200,169,126,.04); }
-.svc-item::before {
-  content: attr(data-num);
-  position: absolute; bottom: 20px; right: 24px;
-  font-family: var(--ff-head); font-size: 5rem; font-weight: 900;
-  color: rgba(255,255,255,.03); line-height: 1; pointer-events: none;
-  transition: color .4s;
-}
-.svc-item:hover::before { color: rgba(200,169,126,.06); }
 .svc-icon {
-  width: 48px; height: 48px; margin-bottom: 24px;
+  width: 36px; height: 36px; margin-bottom: 18px;
   color: var(--accent);
 }
 .svc-name {
