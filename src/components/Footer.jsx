@@ -47,7 +47,6 @@ export default function Footer() {
           <a href="mailto:mozhgannamiseghinsara@gmail.com">Email</a>
           <a href="https://wa.me/393515993144" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="https://www.instagram.com/mozhganphotography/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://maps.google.com/?q=Turin,Italy" target="_blank" rel="noopener noreferrer">Turin, Italy</a>
         </div>
       </div>
 
