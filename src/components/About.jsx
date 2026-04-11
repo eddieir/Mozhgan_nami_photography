@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import mozhganAbout from '../assets/Mozhgan_About.jpg'
 const ease = [0.25,0.46,0.45,0.94]
 const SKILLS = ['Fashion Photography','Portrait Sessions','Product Photography','Creative Direction','Video & Film','Editorial Work','Post-Production','Art Direction']
 
@@ -12,7 +13,7 @@ export default function About() {
         initial={{ opacity:0, x:-60 }} animate={inView?{opacity:1,x:0}:{}}
         transition={{ duration:1, ease }}>
         <img className="about-img-main"
-          src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=900&q=80"
+          src={mozhganAbout}
           alt="Mozhgan Nami at work"/>
         <img className="about-img-small"
           src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&q=80"
