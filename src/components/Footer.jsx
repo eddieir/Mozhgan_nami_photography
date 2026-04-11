@@ -29,13 +29,6 @@ export default function Footer() {
         </div>
 
         <div className="foot-col">
-          <div className="foot-col-title">Navigate</div>
-          {[['About','#about'],['Work','#work'],['Services','#services'],['Process','#process'],['Contact','#contact']].map(([l,h]) => (
-            <a key={l} href={h}>{l}</a>
-          ))}
-        </div>
-
-        <div className="foot-col">
           <div className="foot-col-title">Services</div>
           {['Fashion & Editorial','Fine Art Portrait','Product & Brand','Film & Motion','Creative Direction','Workshops'].map(s => (
             <a key={s} href="#services">{s}</a>
