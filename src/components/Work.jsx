@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 
 const ease = [0.25,0.46,0.45,0.94]
 
@@ -24,11 +24,13 @@ const GRID = [
 export default function Work() {
   const ref = useRef(null)
   const inView = useInView(ref, { once:true, margin:'-60px' })
+  const shouldReduce = useReducedMotion()
+  const show = inView || shouldReduce
 
   return (
     <section id="work" className="work-section" ref={ref}>
       <motion.div className="work-header"
-        initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}}
+        initial={{ opacity:0, y:40 }} animate={show?{opacity:1,y:0}:{}}
         transition={{ duration:.9, ease }}>
         <div>
           <div className="s-eyebrow">Portfolio</div>
@@ -38,11 +40,11 @@ export default function Work() {
       </motion.div>
 
       <motion.div className="port-grid"
-        initial={{ opacity:0 }} animate={inView?{opacity:1}:{}}
+        initial={{ opacity:0 }} animate={show?{opacity:1}:{}}
         transition={{ duration:.6, delay:.1 }}>
         {IMGS.map((img, i) => (
           <motion.div key={img.src} className="port-item"
-            initial={{ opacity:0, scale:.97 }} animate={inView?{opacity:1,scale:1}:{}}
+            initial={{ opacity:0, scale:.97 }} animate={show?{opacity:1,scale:1}:{}}
             transition={{ duration:.65, delay:.08+i*.09, ease }}
             style={{ gridColumn: GRID[i].col, height: GRID[i].h }}>
             <img src={img.src} alt={img.title}/>

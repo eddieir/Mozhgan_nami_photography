@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 
 const ease = [0.25,0.46,0.45,0.94]
 
@@ -33,11 +33,13 @@ const SVCS = [
 export default function Services() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const shouldReduce = useReducedMotion()
+  const show = inView || shouldReduce
 
   return (
     <section id="services" className="services-section services-light" ref={ref}>
       <motion.div className="services-header"
-        initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}}
+        initial={{ opacity:0, y:40 }} animate={show?{opacity:1,y:0}:{}}
         transition={{ duration:.9, ease }}>
         <div>
           <div className="s-eyebrow">What I Offer</div>
@@ -52,7 +54,7 @@ export default function Services() {
       <ul className="svc-list">
         {SVCS.map((s, i) => (
           <motion.li key={s.num} className="svc-row"
-            initial={{ opacity:0, y:16 }} animate={inView?{opacity:1,y:0}:{}}
+            initial={{ opacity:0, y:16 }} animate={show?{opacity:1,y:0}:{}}
             transition={{ duration:.6, delay:.1+i*.08, ease }}>
             <span className="svc-row-num">{s.num}</span>
             <div className="svc-row-body">

@@ -1,15 +1,17 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 const ease = [0.25,0.46,0.45,0.94]
 const SKILLS = ['Fashion Photography','Portrait Sessions','Product Photography','Creative Direction','Video & Film','Editorial Work','Post-Production','Art Direction']
 
 export default function About() {
   const ref = useRef(null)
   const inView = useInView(ref, { once:true, margin:'-80px' })
+  const shouldReduce = useReducedMotion()
+  const show = inView || shouldReduce
   return (
     <section id="about" className="about-section" ref={ref}>
       <motion.div className="about-media"
-        initial={{ opacity:0, x:-60 }} animate={inView?{opacity:1,x:0}:{}}
+        initial={{ opacity:0, x:-60 }} animate={show?{opacity:1,x:0}:{}}
         transition={{ duration:1, ease }}>
         <img className="about-img-main"
           src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=900&q=80"
@@ -24,7 +26,7 @@ export default function About() {
       </motion.div>
 
       <motion.div className="about-text"
-        initial={{ opacity:0, x:60 }} animate={inView?{opacity:1,x:0}:{}}
+        initial={{ opacity:0, x:60 }} animate={show?{opacity:1,x:0}:{}}
         transition={{ duration:1, delay:.15, ease }}>
         <div className="s-eyebrow">About the Artist</div>
         <h2 className="s-title">Every Frame<br/>Tells a Story</h2>

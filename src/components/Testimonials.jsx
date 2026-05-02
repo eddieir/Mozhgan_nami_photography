@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 
 const ease = [0.25,0.46,0.45,0.94]
 
@@ -24,11 +24,13 @@ const TESTIS = [
 export default function Testimonials() {
   const ref = useRef(null)
   const inView = useInView(ref, { once:true, margin:'-60px' })
+  const shouldReduce = useReducedMotion()
+  const show = inView || shouldReduce
 
   return (
     <section className="testi-section" ref={ref}>
       <motion.div
-        initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}}
+        initial={{ opacity:0, y:40 }} animate={show?{opacity:1,y:0}:{}}
         transition={{ duration:.9, ease }}>
         <div className="s-eyebrow" style={{ textAlign:'center' }}>Client Words</div>
         <h2 className="s-title" style={{ textAlign:'center' }}>What Clients Say</h2>
@@ -37,7 +39,7 @@ export default function Testimonials() {
       <div className="testi-grid">
         {TESTIS.map((t, i) => (
           <motion.div key={i} className="testi-card"
-            initial={{ opacity:0, y:30 }} animate={inView?{opacity:1,y:0}:{}}
+            initial={{ opacity:0, y:30 }} animate={show?{opacity:1,y:0}:{}}
             transition={{ duration:.7, delay:.12+i*.14, ease }}>
             <p className="testi-text">{t.quote}</p>
             <div className="testi-author">{t.name}</div>

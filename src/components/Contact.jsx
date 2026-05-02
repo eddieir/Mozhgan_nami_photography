@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { Mail, MapPin, Send } from 'lucide-react'
 const ease = [0.25,0.46,0.45,0.94]
 
@@ -20,6 +20,8 @@ const CLINKS = [
 export default function Contact() {
   const ref = useRef(null)
   const inView = useInView(ref, { once:true, margin:'-60px' })
+  const shouldReduce = useReducedMotion()
+  const show = inView || shouldReduce
   const [form, setForm] = useState({ name:'', contact:'', type:'Fashion & Editorial', message:'' })
   const [sent, setSent] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -36,7 +38,7 @@ export default function Contact() {
   return (
     <section id="contact" className="contact-section" ref={ref}>
       <motion.div className="contact-left"
-        initial={{ opacity:0, x:-50 }} animate={inView?{opacity:1,x:0}:{}}
+        initial={{ opacity:0, x:-50 }} animate={show?{opacity:1,x:0}:{}}
         transition={{ duration:1, ease }}>
         <div className="s-eyebrow">Get In Touch</div>
         <h2 className="s-title">Let's Create Your Visual Story</h2>
@@ -69,7 +71,7 @@ export default function Contact() {
       </motion.div>
 
       <motion.div className="contact-right"
-        initial={{ opacity:0, x:50 }} animate={inView?{opacity:1,x:0}:{}}
+        initial={{ opacity:0, x:50 }} animate={show?{opacity:1,x:0}:{}}
         transition={{ duration:1, delay:.15, ease }}>
         {sent ? (
           <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'100%', textAlign:'center', padding:'40px 0' }}>

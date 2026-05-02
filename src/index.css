@@ -174,9 +174,9 @@ nav.desktop a:hover::after { width: 100%; }
 }
 .hero-title-italic {
   font-family: var(--ff-serif);
-  font-size: clamp(5.5rem, 13.5vw, 17rem);
+  font-size: clamp(4rem, 10vw, 12.75rem);
   font-weight: 300; font-style: italic;
-  line-height: 0.86; color: var(--white);
+  line-height: 0.88; color: var(--white);
   display: block; margin-bottom: 44px;
   letter-spacing: -0.03em;
 }
@@ -1376,7 +1376,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,.05); 
   section { padding: clamp(64px,8vw,100px) 24px; }
   .hero-content { padding: 0 24px 80px; }
   .hero-scroll { right: 24px; }
-  .hero-title-italic { font-size: clamp(4rem, 17vw, 9rem); margin-bottom: 32px; }
+  .hero-title-italic { font-size: clamp(3rem, 12.75vw, 6.75rem); margin-bottom: 32px; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
 
   .about-section { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
@@ -1599,4 +1599,16 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,.05); 
 
   .services-light .svc-grid { grid-template-columns: 1fr 1fr; }
   .services-light .svc-item:nth-child(2n) { border-right: none; }
+}
+
+/* ── REDUCED MOTION ACCESSIBILITY ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-line { animation: none; }
+  .ticker-inner { animation: none; }
 }

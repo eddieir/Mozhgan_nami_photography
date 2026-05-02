@@ -33,7 +33,7 @@ const PLANS = [
       'Full-day session (8 hours)',
       'Up to 80 retouched images',
       'Premium editorial retouching',
-      'AI art direction included',
+      'Creative direction included',
       'Extended commercial license',
       'Up to 3 locations',
       'Mood board & concept development',

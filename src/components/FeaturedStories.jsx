@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 
 const ease = [0.25,0.46,0.45,0.94]
 
@@ -33,11 +33,13 @@ const STORIES = [
 export default function FeaturedStories() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const shouldReduce = useReducedMotion()
+  const show = inView || shouldReduce
 
   return (
     <section id="stories" className="stories-section" ref={ref}>
       <motion.div className="stories-header"
-        initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}}
+        initial={{ opacity:0, y:40 }} animate={show?{opacity:1,y:0}:{}}
         transition={{ duration:.9, ease }}>
         <div>
           <div className="s-eyebrow">Featured Work</div>
@@ -50,7 +52,7 @@ export default function FeaturedStories() {
       </motion.div>
 
       <motion.div className="story-featured"
-        initial={{ opacity:0, y:50 }} animate={inView?{opacity:1,y:0}:{}}
+        initial={{ opacity:0, y:50 }} animate={show?{opacity:1,y:0}:{}}
         transition={{ duration:.9, delay:.1, ease }}>
         <div className="story-img-wrap story-img-lg">
           <img src={STORIES[0].src} alt={STORIES[0].title}/>
@@ -70,7 +72,7 @@ export default function FeaturedStories() {
       <div className="stories-sm-grid">
         {STORIES.slice(1).map((s,i) => (
           <motion.div key={s.num} className="story-item"
-            initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}}
+            initial={{ opacity:0, y:40 }} animate={show?{opacity:1,y:0}:{}}
             transition={{ duration:.8, delay:.22+i*.12, ease }}>
             <div className="story-img-wrap story-img-sm">
               <img src={s.src} alt={s.title}/>
