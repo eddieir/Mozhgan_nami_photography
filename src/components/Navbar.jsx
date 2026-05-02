@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 const LINKS = [
-  ['About','#about'],['Work','#work'],['Instagram','#instagram'],
-  ['Services','#services'],['Process','#process'],['Contact','#contact']
+  ['Work','#work'],['Services','#services'],['AI Direction','#ai-direction'],
+  ['Process','#process'],['Pricing','#pricing'],['Contact','#contact']
 ]
 export default function Navbar() {
   const [solid, setSolid] = useState(false)
