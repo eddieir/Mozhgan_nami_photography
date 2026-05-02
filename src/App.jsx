@@ -1,17 +1,15 @@
-import Cursor        from './components/Cursor'
-import Navbar        from './components/Navbar'
-import Hero          from './components/Hero'
-import About         from './components/About'
-import Work          from './components/Work'
-import Services      from './components/Services'
-import AiArtDirection from './components/AiArtDirection'
-import Reel          from './components/Reel'
-import Process       from './components/Process'
-import Testimonials  from './components/Testimonials'
-import Pricing       from './components/Pricing'
-import InstagramFeed from './components/InstagramFeed'
-import Contact       from './components/Contact'
-import Footer        from './components/Footer'
+import Cursor          from './components/Cursor'
+import Navbar          from './components/Navbar'
+import Hero            from './components/Hero'
+import Work            from './components/Work'
+import Services        from './components/Services'
+import FeaturedStories from './components/FeaturedStories'
+import Reel            from './components/Reel'
+import Process         from './components/Process'
+import Testimonials    from './components/Testimonials'
+import About           from './components/About'
+import Contact         from './components/Contact'
+import Footer          from './components/Footer'
 
 export default function App() {
   return (
@@ -21,15 +19,13 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Work />
         <Services />
-        <AiArtDirection />
+        <FeaturedStories />
         <Reel />
         <Process />
         <Testimonials />
-        <Pricing />
-        <InstagramFeed />
+        <About />
         <Contact />
       </main>
       <Footer />

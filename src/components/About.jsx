@@ -27,8 +27,7 @@ export default function About() {
         initial={{ opacity:0, x:60 }} animate={inView?{opacity:1,x:0}:{}}
         transition={{ duration:1, delay:.15, ease }}>
         <div className="s-eyebrow">About the Artist</div>
-        <h2 className="s-title">Where Every<br/>Frame Tells a</h2>
-        <span className="s-title-italic">Story</span>
+        <h2 className="s-title">Every Frame<br/>Tells a Story</h2>
         <div className="divider"/>
         <p className="about-body">
         Mozhgan Photography is a creative photography studio dedicated to capturing authentic moments, emotions, and stories through a refined artistic lens. With a passion for visual storytelling, Mozhgan transforms everyday moments into timeless memories that reflect beauty, personality, and connection.

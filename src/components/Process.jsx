@@ -1,30 +1,48 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+
 const ease = [0.25,0.46,0.45,0.94]
+
 const STEPS = [
-  { n:'01', title:'Discovery Call',        desc:'A relaxed conversation about your vision, mood, and story. No brief is too ambitious or too intimate.' },
-  { n:'02', title:'Creative Concept',      desc:'A bespoke concept: references, colour palette, location scouting, wardrobe direction, and a detailed shot list.' },
-  { n:'03', title:'The Shoot',             desc:'Collaborative, intentional, and unhurried. My approach puts every subject at ease to reveal their most authentic self.' },
-  { n:'04', title:'Curation & Editing',    desc:'I personally select and retouch every image — cinematic tones, meticulous retouching, a timeless and consistent finish.' },
-  { n:'05', title:'Delivery & Licensing',  desc:'Your private gallery delivered within 7 days. Usage rights, print editions, and archival files finalised together.' },
+  {
+    n: '01', title: 'Discovery',
+    desc: 'A relaxed conversation about your vision, mood, and story. No brief is too ambitious or too intimate — this is where everything begins.',
+  },
+  {
+    n: '02', title: 'Creative Direction',
+    desc: 'A bespoke concept built for you: references, colour palette, location scouting, wardrobe direction, and a detailed shot list.',
+  },
+  {
+    n: '03', title: 'Shooting',
+    desc: 'Collaborative, intentional, and unhurried. My approach puts every subject at ease to reveal their most authentic, luminous self.',
+  },
+  {
+    n: '04', title: 'Editing & Delivery',
+    desc: 'I personally select and retouch every image — cinematic tones, meticulous retouching, a timeless finish. Your private gallery delivered within 7 days.',
+  },
 ]
 
 export default function Process() {
   const ref = useRef(null)
-  const inView = useInView(ref, { once:true, margin:'-60px' })
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+
   return (
     <section id="process" className="process-section" ref={ref}>
-      <motion.div initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}} transition={{ duration:.9, ease }}>
+      <motion.div
+        initial={{ opacity:0, y:40 }} animate={inView?{opacity:1,y:0}:{}}
+        transition={{ duration:.9, ease }}>
         <div className="s-eyebrow">How It Works</div>
-        <h2 className="s-title">The Creative</h2>
-        <span className="s-title-italic">Process</span>
+        <h2 className="s-title">The Creative Process</h2>
       </motion.div>
+
       <div className="process-grid">
-        <motion.div initial={{ opacity:0, x:-50 }} animate={inView?{opacity:1,x:0}:{}} transition={{ duration:1, delay:.1, ease }}>
+        <motion.div
+          initial={{ opacity:0, x:-50 }} animate={inView?{opacity:1,x:0}:{}}
+          transition={{ duration:1, delay:.1, ease }}>
           <p style={{ fontSize:'.85rem', fontWeight:300, lineHeight:1.9, color:'var(--grey1)', maxWidth:480, marginBottom:40 }}>
             Every project is a unique collaboration. From first conversation to
             final delivery, the process is thoughtful, transparent, and built
-            entirely around your goals and vision.
+            entirely around your vision.
           </p>
           <div className="process-steps">
             {STEPS.map((s,i) => (
@@ -40,6 +58,7 @@ export default function Process() {
             ))}
           </div>
         </motion.div>
+
         <motion.div className="process-img-wrap"
           initial={{ opacity:0, x:50 }} animate={inView?{opacity:1,x:0}:{}}
           transition={{ duration:1, delay:.2, ease }}>

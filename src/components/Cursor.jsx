@@ -9,7 +9,7 @@ export default function Cursor() {
     document.addEventListener('mousemove', mv)
     const on = () => { dot.current?.classList.add('big'); ring.current?.classList.add('big') }
     const off = () => { dot.current?.classList.remove('big'); ring.current?.classList.remove('big') }
-    const attach = () => document.querySelectorAll('a,button,.port-item,.testi-card,.svc-item,.pstep').forEach(el => {
+    const attach = () => document.querySelectorAll('a,button,.port-item,.testi-card,.svc-row,.pstep,.story-featured,.story-item').forEach(el => {
       el.addEventListener('mouseenter', on); el.addEventListener('mouseleave', off)
     })
     attach()

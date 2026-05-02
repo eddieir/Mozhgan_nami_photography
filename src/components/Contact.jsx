@@ -39,8 +39,7 @@ export default function Contact() {
         initial={{ opacity:0, x:-50 }} animate={inView?{opacity:1,x:0}:{}}
         transition={{ duration:1, ease }}>
         <div className="s-eyebrow">Get In Touch</div>
-        <h2 className="s-title">Let's Create</h2>
-        <span className="s-title-italic">Together</span>
+        <h2 className="s-title">Let's Create Your Visual Story</h2>
         <p className="contact-body">
           Based in Turin, Italy — available worldwide for commissions, campaigns,
           and collaborations. Reach out via email, WhatsApp, or Instagram.

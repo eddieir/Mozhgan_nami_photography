@@ -30,7 +30,7 @@ export default function Footer() {
 
         <div className="foot-col">
           <div className="foot-col-title">Services</div>
-          {['Fashion & Editorial','Fine Art Portrait','Product & Brand','Film & Motion','Creative Direction','Workshops'].map(s => (
+          {['Photography','Film & Reels','Bridal & Couple','Fashion Editorial','Brand Campaigns','Creative Direction'].map(s => (
             <a key={s} href="#services">{s}</a>
           ))}
         </div>

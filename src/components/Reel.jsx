@@ -373,8 +373,7 @@ export default function Reel() {
             transition={{ duration: 0.9, ease }}
           >
             <div className="s-eyebrow">Showreel</div>
-            <h2 className="s-title">In Motion &</h2>
-            <span className="s-title-italic">Story</span>
+            <h2 className="s-title">In Motion & Story</h2>
           </motion.div>
 
           <motion.p
