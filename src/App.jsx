@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom'
 import Cursor          from './components/Cursor'
 import Navbar          from './components/Navbar'
 import Hero            from './components/Hero'
@@ -9,12 +10,11 @@ import About           from './components/About'
 import Testimonials    from './components/Testimonials'
 import Contact         from './components/Contact'
 import Footer          from './components/Footer'
+import WorkPage        from './components/WorkPage'
 
-export default function App() {
+function HomePage() {
   return (
     <>
-      <div className="noise" aria-hidden="true" />
-      <Cursor />
       <Navbar />
       <main>
         <Hero />
@@ -27,6 +27,19 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <>
+      <div className="noise" aria-hidden="true" />
+      <Cursor />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work" element={<WorkPage />} />
+      </Routes>
     </>
   )
 }

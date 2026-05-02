@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 
 const SLIDES = [
@@ -68,7 +69,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div className="hero-btns" {...reveal(1.22)}>
-            <a href="#work" className="btn-gold">View Portfolio</a>
+            <Link to="/work" className="btn-gold">View Portfolio</Link>
             <a href="#contact" className="btn-ghost">Book a Session</a>
           </motion.div>
         </div>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function IgIcon() {
   return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
 }
@@ -29,9 +31,17 @@ export default function Footer() {
         </div>
 
         <div className="foot-col">
+          <div className="foot-col-title">Portfolio</div>
+          <Link to="/work">All Work</Link>
+          <Link to="/work">Bridal</Link>
+          <Link to="/work">Fashion</Link>
+          <Link to="/work">Product</Link>
+        </div>
+
+        <div className="foot-col">
           <div className="foot-col-title">Services</div>
           {['Photography','Film & Reels','Bridal & Couple','Fashion Editorial','Brand Campaigns','Creative Direction'].map(s => (
-            <a key={s} href="#services">{s}</a>
+            <a key={s} href="/#services">{s}</a>
           ))}
         </div>
 

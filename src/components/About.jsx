@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 const ease = [0.25,0.46,0.45,0.94]
 const SKILLS = ['Bridal Photography', 'Fashion Editorial', 'Portrait Sessions', 'Film & Reels', 'Brand Campaigns', 'Creative Direction']
@@ -46,7 +47,7 @@ export default function About() {
         </div>
         <div style={{ marginTop:36, display:'flex', gap:12 }}>
           <a href="#contact" className="btn-gold">Book a Session</a>
-          <a href="#work" className="btn-ghost">View Portfolio</a>
+          <Link to="/work" className="btn-ghost">View Portfolio</Link>
         </div>
       </motion.div>
     </section>
