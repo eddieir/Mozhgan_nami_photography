@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { Mail, MapPin, Send } from 'lucide-react'
+import { Mail, Send } from 'lucide-react'
 const ease = [0.25,0.46,0.45,0.94]
 
 function IgIcon({ size=16 }) {
@@ -41,11 +41,9 @@ export default function Contact() {
         initial={{ opacity:0, x:-50 }} animate={show?{opacity:1,x:0}:{}}
         transition={{ duration:1, ease }}>
         <div className="s-eyebrow">Get In Touch</div>
-        <h2 className="s-title">Let's Create Your Visual Story</h2>
+        <h2 className="s-title">Let's create your visual story.</h2>
         <p className="contact-body">
-          Based in Turin, Italy — available worldwide for commissions, campaigns,
-          and collaborations. Reach out via email, WhatsApp, or Instagram.
-          I respond within 24 hours.
+          Available for bridal, editorial, portrait, film, and brand projects in Italy and worldwide. I respond within 24 hours.
         </p>
         {CLINKS.map(({ Icon, href, label, text }) => (
           <a key={label} href={href} className="clink"

@@ -5,20 +5,20 @@ const ease = [0.25,0.46,0.45,0.94]
 
 const STEPS = [
   {
-    n: '01', title: 'Discovery',
-    desc: 'A relaxed conversation about your vision, mood, and story. No brief is too ambitious or too intimate — this is where everything begins.',
+    n: '01', title: 'Inquiry',
+    desc: 'Share your date, location, and vision. A brief, relaxed conversation to understand your story and what you want to create together.',
   },
   {
     n: '02', title: 'Creative Direction',
-    desc: 'A bespoke concept built for you: references, colour palette, location scouting, wardrobe direction, and a detailed shot list.',
+    desc: 'We define the mood, styling, location, and references together — a clear visual direction before the shoot begins.',
   },
   {
-    n: '03', title: 'Shooting',
-    desc: 'Collaborative, intentional, and unhurried. My approach puts every subject at ease to reveal their most authentic, luminous self.',
+    n: '03', title: 'Shoot Day',
+    desc: 'A calm, guided experience with full attention to light, composition, and atmosphere. You relax — we take care of the rest.',
   },
   {
     n: '04', title: 'Editing & Delivery',
-    desc: 'I personally select and retouch every image — cinematic tones, meticulous retouching, a timeless finish. Your private gallery delivered within 7 days.',
+    desc: 'Your final gallery or film, carefully edited to a refined cinematic finish. Delivered privately within 7 to 14 days.',
   },
 ]
 
@@ -42,9 +42,7 @@ export default function Process() {
           initial={{ opacity:0, x:-50 }} animate={show?{opacity:1,x:0}:{}}
           transition={{ duration:1, delay:.1, ease }}>
           <p style={{ fontSize:'.85rem', fontWeight:300, lineHeight:1.9, color:'var(--grey1)', maxWidth:480, marginBottom:40 }}>
-            Every project is a unique collaboration. From first conversation to
-            final delivery, the process is thoughtful, transparent, and built
-            entirely around your vision.
+            Every project begins with a conversation and ends with imagery that feels right. The process is calm, collaborative, and built around your story.
           </p>
           <div className="process-steps">
             {STEPS.map((s,i) => (
@@ -70,6 +68,12 @@ export default function Process() {
           <div className="process-img-line"/>
         </motion.div>
       </div>
+
+      <motion.div className="process-cta"
+        initial={{ opacity:0, y:20 }} animate={show?{opacity:1,y:0}:{}}
+        transition={{ duration:.8, delay:.6, ease }}>
+        <a href="#contact" className="btn-gold">Start Your Booking</a>
+      </motion.div>
     </section>
   )
 }

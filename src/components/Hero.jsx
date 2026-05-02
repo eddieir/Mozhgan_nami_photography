@@ -7,13 +7,6 @@ const SLIDES = [
   { src:'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&q=85', tag:'Editorial' },
 ]
 
-const STATS = [
-  ['250+','Projects completed'],
-  ['40+', 'Clients worldwide'],
-  ['15+', 'Years of practice'],
-  ['8',   'Awards received'],
-]
-
 const ease = [0.25, 0.46, 0.45, 0.94]
 
 export default function Hero() {
@@ -71,9 +64,7 @@ export default function Hero() {
           </motion.span>
 
           <motion.p className="hero-desc" {...reveal(1.0)}>
-            Mozhgan Nami creates photographs and films that breathe — intimate
-            portraits, bold fashion editorials, and cinematic imagery.
-            Based in Turin, Italy. Available worldwide.
+            Editorial photography and cinematic films for bridal, fashion, portrait, and brand stories.
           </motion.p>
 
           <motion.div className="hero-btns" {...reveal(1.22)}>
@@ -89,6 +80,8 @@ export default function Hero() {
         }}>
           {SLIDES.map((_, i) => (
             <button key={i} onClick={() => setIdx(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === idx ? 'true' : undefined}
               style={{
                 width: i === idx ? 28 : 6, height: 1,
                 background: i === idx ? 'var(--white)' : 'rgba(255,255,255,.22)',
@@ -105,13 +98,12 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Stats bar */}
-      <div className="hero-stats">
-        {STATS.map(([n, l]) => (
-          <div key={l} className="hstat">
-            <div className="hstat-n">{n}</div>
-            <div className="hstat-l">{l}</div>
-          </div>
+      {/* Trust strip */}
+      <div className="trust-strip">
+        {['Bridal Stories', 'Editorial Portraits', 'Fashion Campaigns', 'Film & Reels'].map((item, i, arr) => (
+          <span key={item} className="trust-item">
+            {item}{i < arr.length - 1 && <span className="trust-sep">·</span>}
+          </span>
         ))}
       </div>
     </>

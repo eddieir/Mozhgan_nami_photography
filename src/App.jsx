@@ -4,10 +4,9 @@ import Hero            from './components/Hero'
 import Work            from './components/Work'
 import Services        from './components/Services'
 import FeaturedStories from './components/FeaturedStories'
-import Reel            from './components/Reel'
 import Process         from './components/Process'
-import Testimonials    from './components/Testimonials'
 import About           from './components/About'
+import Testimonials    from './components/Testimonials'
 import Contact         from './components/Contact'
 import Footer          from './components/Footer'
 
@@ -22,10 +21,9 @@ export default function App() {
         <Work />
         <Services />
         <FeaturedStories />
-        <Reel />
         <Process />
-        <Testimonials />
         <About />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

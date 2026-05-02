@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 const LINKS = [
   ['Work',     '#work'],
   ['Services', '#services'],
-  ['Stories',  '#stories'],
   ['Process',  '#process'],
   ['About',    '#about'],
   ['Contact',  '#contact'],

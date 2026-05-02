@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 const ease = [0.25,0.46,0.45,0.94]
-const SKILLS = ['Fashion Photography','Portrait Sessions','Product Photography','Creative Direction','Video & Film','Editorial Work','Post-Production','Art Direction']
+const SKILLS = ['Bridal Photography', 'Fashion Editorial', 'Portrait Sessions', 'Film & Reels', 'Brand Campaigns', 'Creative Direction']
 
 export default function About() {
   const ref = useRef(null)
@@ -32,19 +32,20 @@ export default function About() {
         <h2 className="s-title">Every Frame<br/>Tells a Story</h2>
         <div className="divider"/>
         <p className="about-body">
-        Mozhgan Photography is a creative photography studio dedicated to capturing authentic moments, emotions, and stories through a refined artistic lens. With a passion for visual storytelling, Mozhgan transforms everyday moments into timeless memories that reflect beauty, personality, and connection.
-        Specializing in portrait, lifestyle, and event photography, the brand focuses on creating a comfortable and inspiring experience for every client. Each session is thoughtfully designed to highlight natural expressions and genuine emotions, resulting in images that feel both elegant and real.
+          Mozhgan Nami is a photographer and filmmaker based in Turin, Italy, creating editorial, bridal, portrait, and brand visuals with a cinematic eye.
         </p>
         <p className="about-body">
-        Driven by creativity and attention to detail, Mozhgan Photography blends modern aesthetics with a personal approach—ensuring every photo tells a unique story. 
-        Whether it’s a personal shoot, a special celebration, or creative content for brands, the goal is always the same: to create meaningful visuals that last a lifetime.
+          Her work focuses on emotion, light, movement, and refined visual storytelling — designed for couples, creatives, and brands who want imagery with atmosphere and intention.
+        </p>
+        <p className="about-body">
+          Available in Italy and worldwide for commissions, collaborations, and long-term creative partnerships.
         </p>
         <div className="about-signature">Mozhgan Nami</div>
         <div className="about-skills">
           {SKILLS.map(s => <span key={s} className="skill-tag">{s}</span>)}
         </div>
         <div style={{ marginTop:36, display:'flex', gap:12 }}>
-          <a href="#contact" className="btn-gold">Work Together</a>
+          <a href="#contact" className="btn-gold">Book a Session</a>
           <a href="#work" className="btn-ghost">View Portfolio</a>
         </div>
       </motion.div>

@@ -5,28 +5,28 @@ const ease = [0.25,0.46,0.45,0.94]
 
 const SVCS = [
   {
-    num: '01', name: 'Photography',
-    desc: 'Fine art portraits, personal sessions, and intimate editorial work. Every image is crafted with patience, natural light, and an eye for the authentic moment.',
+    num: '01',
+    name: 'Bridal & Couple Photography',
+    desc: 'Elegant, emotional, and timeless imagery for intimate stories and wedding moments — from engagement sessions to full-day bridal coverage.',
+    for: 'Ideal for couples planning their wedding, elopement, or engagement story.',
   },
   {
-    num: '02', name: 'Film & Reels',
-    desc: 'Cinematic brand films, campaign videos, and social reels. Seamlessly blending still photography with moving image to create richer, more compelling narratives.',
+    num: '02',
+    name: 'Editorial Portraits',
+    desc: 'Cinematic portraits with a refined, fashion-inspired direction — for actors, artists, founders, and individuals who want intentional personal imagery.',
+    for: 'Ideal for personal branding, press materials, and editorial features.',
   },
   {
-    num: '03', name: 'Bridal & Couple',
-    desc: 'Timeless, emotional bridal portraits and couple sessions. From intimate elopements to grand celebrations — every love story deserves its own visual language.',
+    num: '03',
+    name: 'Fashion & Brand Campaigns',
+    desc: 'Visual campaigns for boutiques, designers, beauty, and lifestyle brands — built around identity, cohesion, and emotional impact.',
+    for: 'Ideal for brands launching collections, campaigns, or visual identities.',
   },
   {
-    num: '04', name: 'Fashion Editorial',
-    desc: 'High-concept fashion campaigns and editorial shoots for luxury brands and magazines. Bold styling, precise lighting, and a fearless creative vision.',
-  },
-  {
-    num: '05', name: 'Brand Campaigns',
-    desc: 'Visual storytelling for brands that demand more than beautiful images — cohesive campaigns built around strategy, identity, and lasting emotional resonance.',
-  },
-  {
-    num: '06', name: 'Creative Direction',
-    desc: 'End-to-end creative consultation — concept development, mood-boarding, casting, and art direction for brands and artists who need a complete visual identity.',
+    num: '04',
+    name: 'Film & Reels',
+    desc: 'Short cinematic films and social-ready reels for events, campaigns, and personal brands — crafted with the same care as still photography.',
+    for: 'Ideal for social media content, brand storytelling, and event films.',
   },
 ]
 
@@ -60,11 +60,19 @@ export default function Services() {
             <div className="svc-row-body">
               <div className="svc-row-name">{s.name}</div>
               <p className="svc-row-desc">{s.desc}</p>
+              <p className="svc-row-for">{s.for}</p>
             </div>
             <a href="#contact" className="svc-row-cta">Enquire →</a>
           </motion.li>
         ))}
       </ul>
+
+      <motion.div className="svc-cta"
+        initial={{ opacity:0, y:20 }} animate={show?{opacity:1,y:0}:{}}
+        transition={{ duration:.8, delay:.5, ease }}>
+        <p className="svc-cta-text">Have a project in mind?</p>
+        <a href="#contact" className="btn-gold">Tell us about your project</a>
+      </motion.div>
     </section>
   )
 }
